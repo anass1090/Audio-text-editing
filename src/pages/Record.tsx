@@ -1,9 +1,9 @@
-import Recorder from "../components/recorder";
+import Recorder from "@/components/Recorder";
 
 const RecordPage = () => {
   return (
     <div className="flex flex-col items-center">
-      <Recorder />
+        <Recorder />
     </div>
   );
 };
