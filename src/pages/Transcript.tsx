@@ -1,14 +1,25 @@
-import Player from "../components/Player";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { useLocation } from "react-router-dom";
+import AudioPlayer from "@/components/AudioPlayer";
+import TranscriptEditor from "@/components/TranscriptEditor";
+
+type Word = { i: number; word: string; start: number; end: number };
 
 const TranscriptPage = () => {
-  const dummyAudioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-  const dummyTranscript =
-    "This is a placeholder transcript. Later this will show what you spoke during reflection.";
+  const location = useLocation();
+  const { audioUrl, words = [] } =
+    (location.state as { audioUrl: string; words: Word[] }) || { words: [] };
 
   return (
-    <div className="flex flex-col items-center">
-      <Player audioUrl={dummyAudioUrl} transcript={dummyTranscript} />
-    </div>
+    <Card className="w-full max-w-3xl shadow-2xl backdrop-blur-lg bg-card/80 border border-border/40">
+      <CardHeader>
+        <CardTitle className="text-xl font-bold">Transcript Editor</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <AudioPlayer audioUrl={audioUrl} />
+        <TranscriptEditor words={words} />
+      </CardContent>
+    </Card>
   );
 };
 
