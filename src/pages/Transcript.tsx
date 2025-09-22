@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useLocation } from "react-router-dom";
-import AudioPlayer from "@/components/AudioPlayer";
-import TranscriptEditor from "@/components/TranscriptEditor";
+import Player from "@/components/Player";
+import TranscriptEditor from "@/components/Editor";
 
 type Word = { i: number; word: string; start: number; end: number };
 
@@ -16,7 +16,7 @@ const TranscriptPage = () => {
         <CardTitle className="text-xl font-bold">Transcript Editor</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        <AudioPlayer audioUrl={audioUrl} />
+        <Player audioUrl={audioUrl} />
         <TranscriptEditor words={words} />
       </CardContent>
     </Card>

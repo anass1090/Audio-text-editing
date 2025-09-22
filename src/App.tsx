@@ -9,10 +9,8 @@ function App() {
   return (
     <Router>
       <div className="min-h-dvh flex flex-col">
-        {/* Navbar always at the top */}
         <Navbar />
 
-        {/* Routes */}
         <Routes>
           <Route
             path="/"

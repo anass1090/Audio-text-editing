@@ -32,7 +32,7 @@ const HistoryPage = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {rows.map((t, i) => (
+            {rows.map((t) => (
               <TableRow
                 key={t.id}
                 className="hover:bg-accent/40 transition-colors"
